@@ -5,7 +5,7 @@ set autoread		"error alert for destructive write
 set number
 
 colorscheme xoria256
- 
+
 set backup              " make backup files
 set backupdir=/media/u01/temp   " where to put backup files
 set backupskip=/media/u01/temp  " Don’t create backups when editing files in certain directories
@@ -44,6 +44,9 @@ if has('gui_running')
 	set guifont=Monospace\ 12
 endif
 
+" Save file with C-s
+nnoremap <silent><C-s> :w<CR>
+
 " plug-vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
@@ -53,10 +56,12 @@ call plug#begin('~/.vim/plugged')
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'lilydjwg/colorizer'
 Plug 'kshenoy/vim-signature'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
+Plug 'google/vim-searchindex'
 
 " Any valid git URL is allowed
 "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
@@ -85,3 +90,23 @@ call plug#end()
 
 " gist-vim
 let github_user = 'yyq123'
+
+" Airline                                                                                 │
+"let g:airline#extensions#branch#enabled = 1
+" Show list of buffers in tabline
+"let g:airline#extensions#tabline#enabled = 1
+" Show just the filename in tabline
+"let g:airline#extensions#tabline#fnamemod = ':t'
+" show buffer number                                                                      │
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+" Airline theme
+"let g:airline_solarized_bg='dark'
+" Airline symbols
+"let g:airline_left_sep = "\uE0C0"
+"let g:airline_right_sep = "\uE0C2"
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
