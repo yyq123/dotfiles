@@ -42,6 +42,12 @@ set listchars=tab:\|·,trail:¶,nbsp:.,extends:»
 
 if has('gui_running')
 	set guifont=Monospace\ 12
+	set guioptions-=m
+	set guioptions-=T
+	set guioptions-=r
+	set guioptions-=l
+	set guioptions-=b
+	set lines=500 columns=500
 endif
 
 " Save file with C-s
@@ -94,13 +100,13 @@ let github_user = 'yyq123'
 " Airline                                                                                 │
 "let g:airline#extensions#branch#enabled = 1
 " Show list of buffers in tabline
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 " Show just the filename in tabline
-"let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':t'
 " show buffer number                                                                      │
-"let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 " Airline theme
-"let g:airline_solarized_bg='dark'
+let g:airline_solarized_bg='dark'
 " Airline symbols
 "let g:airline_left_sep = "\uE0C0"
 "let g:airline_right_sep = "\uE0C2"
