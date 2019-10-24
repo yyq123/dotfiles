@@ -42,7 +42,7 @@ set listchars=tab:\|·,trail:¶,nbsp:.,extends:»
 
 if has('gui_running')
 	set guifont=Monospace\ 12
-	set guioptions-=m
+	set guioptions+=m
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=l
@@ -50,10 +50,26 @@ if has('gui_running')
 	set lines=500 columns=500
 endif
 
+if has("unix")
+"	set printencoding=utf-8
+"	set printmbcharset=ISO10646
+"	set printmbfont=r:UMingCN,i:UKaiCN,c:yes
+"	set printfont=Courier:h10:cDEFAULT
+"	set printdevice=Cups-PDF
+endif
+
+" 生成PDF
+"command Paps write !paps < % > %:r'.ps'
+command Paps !paps % | ps2pdf - %:r.pdf
+
+" Print
+nmap PpP :%w !lpr -o lpi=8 -o cpi=14<CR><CR>
+
 " Save file with C-s
 nnoremap <silent><C-s> :w<CR>
 
-" plug-vim
+
+" plug-vim {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -93,6 +109,7 @@ Plug 'google/vim-searchindex'
 
 " Initialize plugin system
 call plug#end()
+" }}}
 
 " gist-vim
 let github_user = 'yyq123'
